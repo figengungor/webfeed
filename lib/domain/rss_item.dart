@@ -13,6 +13,7 @@ class RssItem {
   final String? title;
   final String? description;
   final String? link;
+  final String? image;
 
   final List<RssCategory>? categories;
   final String? guid;
@@ -30,6 +31,7 @@ class RssItem {
     this.title,
     this.description,
     this.link,
+    this.image,
     this.categories,
     this.guid,
     this.pubDate,
@@ -48,6 +50,7 @@ class RssItem {
       title: element.findElements('title').firstOrNull?.text,
       description: element.findElements('description').firstOrNull?.text,
       link: element.findElements('link').firstOrNull?.text,
+      image: element.findAllElements('image').firstOrNull?.text,
       categories: element
           .findElements('category')
           .map((e) => RssCategory.parse(e))
